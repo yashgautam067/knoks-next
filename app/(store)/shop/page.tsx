@@ -33,6 +33,7 @@ function ShopContent() {
   const [category, setCategory] = useState(initialCategory);
   const [sort, setSort] = useState("newest");
   const [showFilters, setShowFilters] = useState(false);
+  const [showSort, setShowSort] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -95,17 +96,46 @@ function ShopContent() {
             Filters
           </button>
 
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-            className="bg-card border border-border text-cream text-sm font-body px-3 py-2 focus:outline-none focus:border-red"
-          >
-            {sortOptions.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <button
+              onClick={() => setShowSort(!showSort)}
+              className="flex items-center gap-2 bg-card border border-border text-cream text-sm font-body px-4 py-2.5 hover:border-silver/30 transition-colors focus:outline-none focus:border-red min-w-[180px] justify-between"
+            >
+              <span>{sortOptions.find((o) => o.value === sort)?.label}</span>
+              <svg
+                className={`w-4 h-4 text-silver/50 transition-transform duration-200 ${showSort ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {showSort && (
+              <>
+                {/* Invisible backdrop to close dropdown */}
+                <div className="fixed inset-0 z-10" onClick={() => setShowSort(false)} />
+                <div className="absolute right-0 top-full mt-1 z-20 bg-charcoal border border-border min-w-[200px] shadow-xl shadow-black/50">
+                  {sortOptions.map((opt) => (
+                    <button
+                      key={opt.value}
+                      onClick={() => {
+                        setSort(opt.value);
+                        setShowSort(false);
+                      }}
+                      className={`w-full text-left px-4 py-2.5 text-sm font-body transition-colors ${
+                        sort === opt.value
+                          ? "bg-red/10 text-red"
+                          : "text-silver/70 hover:bg-card hover:text-cream"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
         </div>
 
         {/* Mobile Filters */}

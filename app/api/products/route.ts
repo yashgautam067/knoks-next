@@ -52,6 +52,7 @@ export async function GET(request: Request) {
   const { data, count, error } = await query;
 
   if (error) {
+    console.error("❌ PRODUCTS API ERROR:", error.message, error.code, error.details);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }

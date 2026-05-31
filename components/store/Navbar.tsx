@@ -21,9 +21,6 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/shop", label: "Shop" },
-  { href: "/shop?category=boxer-brief", label: "Boxer Briefs" },
-  { href: "/shop?category=trunk", label: "Trunks" },
-  { href: "/shop?category=pack", label: "Packs" },
 ];
 
 export default function Navbar() {
@@ -43,84 +40,66 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+    <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 transition-all duration-500",
         scrolled
-          ? "bg-black/95 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          ? "bg-black/95 backdrop-blur-md border-b border-border shadow-lg shadow-black/20"
+          : "bg-gradient-to-b from-black/80 via-black/40 to-transparent"
       )}
+      style={{ zIndex: 9999 }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-cream"
-          >
-            {mobileOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
+        {/* Desktop Layout: Logo left, Nav + Icons right */}
+        <div className="hidden md:flex items-center justify-between h-20">
+          {/* Logo — Left */}
+          <Link href="/" className="flex items-center gap-2.5 shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo-icon.jpg"
+              alt="KNOKS"
+              className="h-10 lg:h-12 w-auto"
+            />
+            <span className="text-cream font-heading text-2xl lg:text-3xl tracking-[0.25em] font-bold select-none">
+              KNOKS
+            </span>
+          </Link>
 
-          {/* Desktop Nav Links — Left */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navLinks.slice(0, 3).map((link) => (
+          {/* Nav Links + Icons — Right */}
+          <div className="flex items-center gap-5 lg:gap-7">
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm lg:text-base font-heading tracking-[0.15em] uppercase transition-colors",
+                  "text-sm lg:text-base font-heading tracking-[0.15em] uppercase transition-colors duration-300 whitespace-nowrap",
                   pathname === link.href
                     ? "text-cream"
-                    : "text-silver/50 hover:text-cream"
+                    : "text-silver/60 hover:text-cream"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-          </div>
 
-          {/* Logo — Center */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center">
-            <span className="text-cream font-heading text-2xl md:text-3xl lg:text-4xl tracking-[0.3em] font-bold select-none">
-              KNOKS
-            </span>
-          </Link>
+            {/* Divider */}
+            <div className="w-px h-5 bg-border" />
 
-          {/* Desktop Nav Links — Right */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navLinks.slice(3).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm lg:text-base font-heading tracking-[0.15em] uppercase text-silver/50 hover:text-cream transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Icons */}
-          <div className="flex items-center gap-4 md:gap-5">
+            {/* Icons */}
             <Link
               href="/shop"
-              className="text-silver/50 hover:text-cream transition-colors hidden md:block"
+              className="text-silver/60 hover:text-cream transition-colors duration-300"
             >
               <Search className="w-5 h-5" />
             </Link>
 
             <Link
               href="/account/wishlist"
-              className="text-silver/50 hover:text-cream transition-colors relative"
+              className="text-silver/60 hover:text-cream transition-colors duration-300 relative"
             >
               <Heart className="w-5 h-5" />
               {mounted && wishlistCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red text-cream text-[10px] font-mono flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-red text-cream text-[10px] font-mono flex items-center justify-center rounded-full">
                   {wishlistCount}
                 </span>
               )}
@@ -128,11 +107,11 @@ export default function Navbar() {
 
             <Link
               href="/cart"
-              className="text-silver/50 hover:text-cream transition-colors relative"
+              className="text-silver/60 hover:text-cream transition-colors duration-300 relative"
             >
               <ShoppingBag className="w-5 h-5" />
               {mounted && itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red text-cream text-[10px] font-mono flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-red text-cream text-[10px] font-mono flex items-center justify-center rounded-full">
                   {itemCount}
                 </span>
               )}
@@ -142,13 +121,13 @@ export default function Navbar() {
               <div className="flex items-center gap-3">
                 <Link
                   href={isAdmin ? "/admin" : "/account"}
-                  className="text-silver/50 hover:text-cream transition-colors"
+                  className="text-silver/60 hover:text-cream transition-colors duration-300"
                 >
                   <User className="w-5 h-5" />
                 </Link>
                 <button
                   onClick={signOut}
-                  className="text-silver/50 hover:text-red transition-colors hidden md:block"
+                  className="text-silver/60 hover:text-red transition-colors duration-300"
                 >
                   <LogOut className="w-4 h-4" />
                 </button>
@@ -156,7 +135,65 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="text-silver/50 hover:text-cream transition-colors"
+                className="text-silver/60 hover:text-cream transition-colors duration-300"
+              >
+                <User className="w-5 h-5" />
+              </Link>
+            )}
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="flex md:hidden items-center justify-between h-16">
+          {/* Hamburger */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-cream"
+          >
+            {mobileOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+
+          {/* Mobile Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo-icon.jpg"
+              alt="KNOKS"
+              className="h-8 w-auto"
+            />
+            <span className="text-cream font-heading text-lg tracking-[0.2em] font-bold select-none">
+              KNOKS
+            </span>
+          </Link>
+
+          {/* Mobile Icons */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/cart"
+              className="text-silver/60 hover:text-cream transition-colors relative"
+            >
+              <ShoppingBag className="w-5 h-5" />
+              {mounted && itemCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-red text-cream text-[10px] font-mono flex items-center justify-center rounded-full">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+            {user ? (
+              <Link
+                href={isAdmin ? "/admin" : "/account"}
+                className="text-silver/60 hover:text-cream transition-colors"
+              >
+                <User className="w-5 h-5" />
+              </Link>
+            ) : (
+              <Link
+                href="/login"
+                className="text-silver/60 hover:text-cream transition-colors"
               >
                 <User className="w-5 h-5" />
               </Link>
@@ -172,22 +209,27 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black border-t border-border overflow-hidden"
+            className="md:hidden bg-black/95 backdrop-blur-md border-t border-border overflow-hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-6 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block text-sm font-heading tracking-[0.2em] uppercase text-silver hover:text-cream transition-colors py-2"
+                  className={cn(
+                    "block text-base font-heading tracking-[0.2em] uppercase transition-colors py-3 border-b border-border/30",
+                    pathname === link.href
+                      ? "text-cream"
+                      : "text-silver/60 hover:text-cream"
+                  )}
                 >
                   {link.label}
                 </Link>
               ))}
               {user && (
                 <>
-                  <div className="border-t border-border pt-4">
+                  <div className="pt-4">
                     <p className="text-cream text-sm font-body">
                       {profile?.name}
                     </p>
@@ -197,7 +239,7 @@ export default function Navbar() {
                       signOut();
                       setMobileOpen(false);
                     }}
-                    className="text-red text-sm font-heading tracking-widest"
+                    className="text-red text-sm font-heading tracking-widest py-3"
                   >
                     SIGN OUT
                   </button>
@@ -207,6 +249,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }
