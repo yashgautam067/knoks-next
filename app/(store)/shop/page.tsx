@@ -79,7 +79,7 @@ function ShopContent() {
                 onClick={() => setCategory(cat.value)}
                 className={`px-4 py-2 text-xs font-heading tracking-widest transition-all ${
                   category === cat.value
-                    ? "bg-red text-cream"
+                    ? "bg-gold text-black"
                     : "text-silver/50 hover:text-cream"
                 }`}
               >
@@ -99,7 +99,7 @@ function ShopContent() {
           <div className="relative">
             <button
               onClick={() => setShowSort(!showSort)}
-              className="flex items-center gap-2 bg-card border border-border text-cream text-sm font-body px-4 py-2.5 hover:border-silver/30 transition-colors focus:outline-none focus:border-red min-w-[180px] justify-between"
+              className="flex items-center gap-2 bg-card border border-border text-cream text-sm font-body px-4 py-2.5 hover:border-silver/30 transition-colors focus:outline-none focus:border-gold min-w-[180px] justify-between"
             >
               <span>{sortOptions.find((o) => o.value === sort)?.label}</span>
               <svg
@@ -125,7 +125,7 @@ function ShopContent() {
                       }}
                       className={`w-full text-left px-4 py-2.5 text-sm font-body transition-colors ${
                         sort === opt.value
-                          ? "bg-red/10 text-red"
+                          ? "bg-gold/10 text-gold"
                           : "text-silver/70 hover:bg-card hover:text-cream"
                       }`}
                     >
@@ -155,7 +155,7 @@ function ShopContent() {
                   }}
                   className={`px-3 py-1.5 text-xs font-heading tracking-widest ${
                     category === cat.value
-                      ? "bg-red text-cream"
+                      ? "bg-gold text-black"
                       : "border border-border text-silver"
                   }`}
                 >

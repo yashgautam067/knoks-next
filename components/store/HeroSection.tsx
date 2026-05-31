@@ -91,9 +91,9 @@ export default function HeroSection() {
 
         {/* Text Content Below Image */}
         <div className="px-6 py-8">
-          <div className="inline-flex items-center gap-2 bg-red/10 border border-red/20 px-3 py-1 mb-4">
-            <span className="w-1.5 h-1.5 bg-red rounded-full animate-pulse" />
-            <span className="text-red text-[10px] font-heading tracking-[0.2em]">
+          <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 px-3 py-1 mb-4">
+            <span className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
+            <span className="text-gold text-[10px] font-heading tracking-[0.2em]">
               ESSENTIAL LUXURY
             </span>
           </div>
@@ -101,7 +101,7 @@ export default function HeroSection() {
           <h1 className="text-cream font-heading text-5xl leading-[0.9] tracking-wider mb-4">
             HIT
             <br />
-            <span className="text-red">DIFFERENT.</span>
+            <span className="text-gold">DIFFERENT.</span>
           </h1>
 
           <p className="text-silver/60 font-body text-sm mb-6 max-w-xs">
@@ -145,10 +145,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="inline-flex items-center gap-2 bg-red/10 border border-red/20 px-4 py-1.5 mb-6"
+              className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 px-4 py-1.5 mb-6"
             >
-              <span className="w-2 h-2 bg-red rounded-full animate-pulse" />
-              <span className="text-red text-xs font-heading tracking-[0.2em]">
+              <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
+              <span className="text-gold text-xs font-heading tracking-[0.2em]">
                 ESSENTIAL LUXURY
               </span>
             </motion.div>
@@ -161,7 +161,7 @@ export default function HeroSection() {
             >
               HIT
               <br />
-              <span className="text-red">DIFFERENT.</span>
+              <span className="text-gold">DIFFERENT.</span>
             </motion.h1>
 
             <motion.p
@@ -214,7 +214,7 @@ export default function HeroSection() {
                   <div className={`h-[2px] transition-all duration-500 ${i === current ? "w-8 bg-cream" : "w-4 bg-silver/20 group-hover:bg-silver/50"}`} />
                   {i === current && (
                     <motion.div
-                      className="absolute top-0 left-0 h-[2px] bg-red"
+                      className="absolute top-0 left-0 h-[2px] bg-gold"
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ duration: AUTO_SCROLL_INTERVAL / 1000, ease: "linear" }}

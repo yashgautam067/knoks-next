@@ -11,15 +11,20 @@ const config: Config = {
       colors: {
         black: "#0A0A0A",
         charcoal: "#141414",
-        card: "#1C1C1C",
+        card: "#1A1A1A",
         border: "#2A2A2A",
-        silver: "#C0C0C0",
+        silver: "#A0A0A0",
         cream: "#F5F5F0",
+        white: "#FFFFFF",
+        gold: {
+          DEFAULT: "#C9A84C",
+          light: "#E2CC8B",
+          dark: "#9A7B2F",
+        },
         red: {
           DEFAULT: "#E63946",
           dark: "#C1121F",
         },
-        gold: "#D4AF37",
       },
       fontFamily: {
         heading: ["var(--font-bebas-neue)", "sans-serif"],

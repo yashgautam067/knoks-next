@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Truck, Shield, RefreshCw } from "lucide-react";
 import HeroSection from "@/components/store/HeroSection";
@@ -77,21 +76,31 @@ export default function HomePage() {
       {/* Hero */}
       <HeroSection />
 
+      {/* Gold Divider */}
+      <div className="gold-divider" />
+
       {/* Marquee */}
       <MarqueeStrip />
 
+      {/* Gold Divider */}
+      <div className="gold-divider" />
+
       {/* Featured Products */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <section className="py-24 bg-black gold-bg-pattern relative">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
-            <h2 className="text-cream font-heading text-4xl md:text-5xl tracking-widest mb-3">
+            <span className="text-gold text-xs font-heading tracking-[0.4em] block mb-4">
+              CURATED FOR YOU
+            </span>
+            <h2 className="text-cream font-heading text-4xl md:text-6xl tracking-widest mb-4">
               BEST SELLERS
             </h2>
+            <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-4" />
             <p className="text-silver/50 font-body max-w-lg mx-auto">
               Our most loved products, trusted by thousands of men across India
             </p>
@@ -103,7 +112,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-14">
             <Link href="/shop">
               <Button
                 variant="secondary"
@@ -117,31 +126,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Lifestyle Section */}
-      <section className="relative py-0">
+      {/* Gold Divider */}
+      <div className="gold-divider" />
+
+      {/* Lifestyle / Philosophy Section */}
+      <section className="relative py-0 overflow-hidden">
         <div className="grid md:grid-cols-2">
-          <div className="relative h-[500px] md:h-[600px]">
-            <Image
-              src="/images/products/product-2.jpg"
-              alt="KNOKS Lifestyle"
-              fill
-              className="object-cover"
+          <div className="relative h-[500px] md:h-[650px]">
+            {/* Use hero image as lifestyle shot */}
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: "url(/images/hero/hero-jeep.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-charcoal hidden md:block" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-charcoal md:hidden" />
           </div>
-          <div className="bg-charcoal flex items-center p-8 md:p-16">
+          <div className="bg-charcoal flex items-center p-8 md:p-16 gold-bg-pattern relative">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="relative z-10"
             >
-              <span className="text-red text-xs font-heading tracking-[0.3em]">
+              <span className="text-gradient text-xs font-heading tracking-[0.4em]">
                 OUR PHILOSOPHY
               </span>
-              <h2 className="text-cream font-heading text-4xl md:text-5xl tracking-wider mt-4 mb-6">
+              <h2 className="text-cream font-heading text-4xl md:text-5xl tracking-wider mt-4 mb-2">
                 BUILT DIFFERENT.
-                <br />
-                <span className="text-red">WORN BETTER.</span>
               </h2>
+              <h2 className="text-gradient font-heading text-4xl md:text-5xl tracking-wider mb-6">
+                WORN BETTER.
+              </h2>
+              <div className="w-12 h-[1px] bg-gradient-to-r from-gold to-transparent mb-6" />
               <p className="text-silver/60 font-body leading-relaxed mb-8">
                 Every pair of KNOKS underwear is engineered from the ground up.
                 We obsess over fabric selection, fit engineering, and design
@@ -158,6 +178,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Gold Divider */}
+      <div className="gold-divider" />
+
       {/* Features */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -169,9 +192,11 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-6"
+                className="text-center p-6 border border-border/50 hover:border-gold/30 transition-all duration-500 group"
               >
-                <feature.icon className="w-8 h-8 text-red mx-auto mb-4" />
+                <div className="w-14 h-14 mx-auto mb-4 border border-gold/20 flex items-center justify-center group-hover:border-gold/50 transition-colors">
+                  <feature.icon className="w-6 h-6 text-gold" />
+                </div>
                 <h3 className="text-cream text-sm font-heading tracking-widest mb-2">
                   {feature.title}
                 </h3>
@@ -184,17 +209,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Gold Divider */}
+      <div className="gold-divider" />
+
       {/* Newsletter */}
-      <section className="py-20 bg-charcoal border-t border-b border-border">
-        <div className="max-w-2xl mx-auto px-4 text-center">
+      <section className="py-24 bg-charcoal relative gold-bg-pattern">
+        <div className="max-w-2xl mx-auto px-4 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-cream font-heading text-3xl md:text-4xl tracking-widest mb-3">
+            <span className="text-gold text-xs font-heading tracking-[0.4em] block mb-4">
+              EXCLUSIVE ACCESS
+            </span>
+            <h2 className="text-cream font-heading text-3xl md:text-5xl tracking-widest mb-3">
               JOIN THE KNOKS CLUB
             </h2>
+            <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-4" />
             <p className="text-silver/50 font-body mb-8">
               Get 15% off your first order + exclusive drops & early access
             </p>
@@ -204,7 +236,7 @@ export default function HomePage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 bg-card border border-border text-cream px-4 py-3 text-sm font-body placeholder:text-silver/30 focus:outline-none focus:border-red"
+                className="flex-1 bg-black/50 border border-gold/20 text-cream px-4 py-3 text-sm font-body placeholder:text-silver/30 focus:outline-none focus:border-gold transition-colors"
               />
               <Button
                 variant="primary"

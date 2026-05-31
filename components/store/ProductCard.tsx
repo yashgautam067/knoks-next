@@ -65,7 +65,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       className="group"
     >
       <Link href={`/product/${product.slug}`}>
-        <div className="bg-card border border-border overflow-hidden transition-all duration-300 hover:border-silver/30 hover:shadow-lg hover:shadow-red/5">
+        <div className="bg-card border border-border overflow-hidden transition-all duration-300 hover:border-silver/30 hover:shadow-lg hover:shadow-gold/5">
           {/* Image */}
           <div className="relative aspect-[3/4] overflow-hidden">
             {product.images[0] ? (
@@ -78,7 +78,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               />
             ) : (
               <div className="w-full h-full bg-gradient-to-br from-card to-charcoal flex items-center justify-center">
-                <span className="text-red/20 font-heading text-6xl">K</span>
+                <span className="text-gold/20 font-heading text-6xl">K</span>
               </div>
             )}
 
@@ -88,7 +88,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 className={cn(
                   "absolute top-3 left-3 px-2 py-1 text-[10px] font-heading tracking-[0.15em]",
                   product.badge === "BESTSELLER" &&
-                    "bg-red text-cream",
+                    "bg-gold text-black",
                   product.badge === "NEW" &&
                     "bg-cream text-black",
                   product.badge === "LIMITED" &&
@@ -101,7 +101,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
 
             {/* Discount */}
             {discount > 0 && (
-              <div className="absolute top-3 right-3 bg-red text-cream text-[10px] font-mono px-2 py-0.5">
+              <div className="absolute top-3 right-3 bg-gold text-black text-[10px] font-mono px-2 py-0.5">
                 -{discount}%
               </div>
             )}
@@ -110,7 +110,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             <div className="absolute bottom-0 left-0 right-0 p-3 flex gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <button
                 onClick={handleAddToCart}
-                className="flex-1 bg-red hover:bg-red-dark text-cream text-[10px] font-heading tracking-widest py-2.5 flex items-center justify-center gap-2 transition-colors"
+                className="flex-1 bg-gold hover:bg-gold-dark text-black text-[10px] font-heading tracking-widest py-2.5 flex items-center justify-center gap-2 transition-colors"
               >
                 <ShoppingBag className="w-3.5 h-3.5" />
                 ADD TO CART
@@ -120,7 +120,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                 className={cn(
                   "w-10 border flex items-center justify-center transition-colors",
                   inWishlist
-                    ? "bg-red border-red text-cream"
+                    ? "bg-gold border-gold text-black"
                     : "border-border bg-black/80 text-silver hover:text-cream hover:border-silver"
                 )}
               >
