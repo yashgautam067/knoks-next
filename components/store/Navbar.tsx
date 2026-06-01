@@ -42,12 +42,12 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 transition-all duration-500",
+        "fixed left-0 right-0 transition-all duration-500",
         scrolled
           ? "bg-black/95 backdrop-blur-md border-b border-border shadow-lg shadow-black/20"
           : "bg-gradient-to-b from-black/80 via-black/40 to-transparent"
       )}
-      style={{ zIndex: 9999 }}
+      style={{ zIndex: 9999, top: "36px" }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Desktop Layout: Logo left, Nav + Icons right */}
@@ -92,6 +92,8 @@ export default function Navbar() {
             >
               <Search className="w-5 h-5" />
             </Link>
+
+
 
             <Link
               href="/account/wishlist"
@@ -172,6 +174,7 @@ export default function Navbar() {
 
           {/* Mobile Icons */}
           <div className="flex items-center gap-3">
+
             <Link
               href="/cart"
               className="text-silver/60 hover:text-cream transition-colors relative"

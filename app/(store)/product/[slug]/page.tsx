@@ -73,15 +73,15 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   };
 
   return (
-    <div className="pt-20 pb-20 bg-black min-h-screen">
+    <div className="pb-20 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* Images */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="space-y-4">
             {/* Main Image */}
-            <div className="relative aspect-[3/4] bg-card border border-border overflow-hidden group">
+            <div className="relative aspect-square bg-card border border-border overflow-hidden group">
               {product.images[selectedImage] ? (
-                <Image src={product.images[selectedImage]} alt={product.name} fill className="object-cover object-center group-hover:scale-110 transition-transform duration-700" sizes="(max-width:1024px) 100vw, 50vw" priority />
+                <Image src={product.images[selectedImage]} alt={product.name} fill className="object-contain object-center group-hover:scale-110 transition-transform duration-700" sizes="(max-width:1024px) 100vw, 50vw" priority />
               ) : (
                 <div className="w-full h-full flex items-center justify-center"><span className="text-red/20 font-heading text-8xl">K</span></div>
               )}
@@ -174,7 +174,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
             {/* Perks */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-              {[{ icon: Truck, text: "Free shipping ₹999+" }, { icon: RefreshCw, text: "30-day returns" }, { icon: Shield, text: "Quality guaranteed" }].map((perk) => (
+              {[{ icon: Truck, text: "Fast delivery" }, { icon: Shield, text: "100% Cotton" }, { icon: Shield, text: "Quality guaranteed" }].map((perk) => (
                 <div key={perk.text} className="text-center">
                   <perk.icon className="w-5 h-5 text-silver/30 mx-auto mb-1" />
                   <p className="text-silver/40 text-[10px] font-body">{perk.text}</p>

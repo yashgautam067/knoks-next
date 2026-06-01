@@ -42,7 +42,7 @@ export default function HeroSection() {
   }, [next]);
 
   return (
-    <section className="w-full bg-black pt-20">
+    <section className="w-full bg-black" style={{ marginTop: "-116px", paddingTop: "116px" }}>
       {/* ═══════════════════════════════════════════════ */}
       {/* MOBILE: Image on top, text below               */}
       {/* ═══════════════════════════════════════════════ */}
@@ -50,15 +50,15 @@ export default function HeroSection() {
         {/* Image Carousel */}
         <div className="relative w-full" style={{ height: "55vh" }}>
           {heroImages.map((src, i) => (
-            <div
+            <img
               key={src}
-              className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+              src={src}
+              alt="KNOKS Hero"
+              className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out"
               style={{
                 opacity: i === current ? 1 : 0,
-                backgroundImage: `url(${src})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
+                objectFit: "contain",
+                objectPosition: "center",
               }}
             />
           ))}
@@ -105,7 +105,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-silver/60 font-body text-sm mb-6 max-w-xs">
-            Premium underwear engineered for the modern man. Designed for confidence.
+            Premium 100% cotton underwear for the modern man. Designed for confidence.
           </p>
 
           <div className="flex gap-3 mb-8">
@@ -137,7 +137,7 @@ export default function HeroSection() {
       {/* ═══════════════════════════════════════════════ */}
       {/* DESKTOP: Split layout — text left, image right */}
       {/* ═══════════════════════════════════════════════ */}
-      <div className="hidden md:flex flex-row" style={{ height: "calc(100vh - 80px)" }}>
+      <div className="hidden md:flex flex-row" style={{ height: "calc(100vh - 116px)" }}>
         {/* Left — Static Text */}
         <div className="w-[45%] flex items-center px-12 lg:px-16">
           <div className="max-w-lg">
@@ -170,7 +170,7 @@ export default function HeroSection() {
               transition={{ delay: 0.7 }}
               className="text-silver/60 font-body text-lg mb-8 max-w-sm"
             >
-              Premium underwear engineered for the modern man. Designed for confidence, crafted for comfort.
+              Premium 100% cotton underwear for the modern man. Designed for confidence, crafted for comfort.
             </motion.p>
 
             <motion.div
@@ -198,7 +198,7 @@ export default function HeroSection() {
               {[
                 { value: "50K+", label: "Happy Customers" },
                 { value: "4.8★", label: "Average Rating" },
-                { value: "100%", label: "Premium Cotton" },
+                { value: "100%", label: "Cotton" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-cream font-heading text-xl lg:text-2xl tracking-wider">{stat.value}</p>
@@ -229,17 +229,17 @@ export default function HeroSection() {
 
         {/* Right — Image Panel */}
         <div className="w-[55%] relative">
-          {/* Images with crossfade using background-image */}
+          {/* Images with crossfade */}
           {heroImages.map((src, i) => (
-            <div
+            <img
               key={src}
-              className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+              src={src}
+              alt="KNOKS Hero"
+              className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out"
               style={{
                 opacity: i === current ? 1 : 0,
-                backgroundImage: `url(${src})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
+                objectFit: "contain",
+                objectPosition: "center",
               }}
             />
           ))}

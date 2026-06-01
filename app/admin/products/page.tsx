@@ -20,7 +20,7 @@ export default function AdminProductsPage() {
   const [editing, setEditing] = useState<Product | null>(null);
   const [form, setForm] = useState({
     name: "", slug: "", description: "", short_desc: "", price: "", mrp: "",
-    category: "boxer-brief" as string, sizes: "S,M,L,XL", material: "", stock: "100",
+    category: "boxer-brief" as string, sizes: "S,M,L,XL", material: "100% Cotton", stock: "100",
     badge: "" as string, images: [] as string[],
   });
 
@@ -35,7 +35,7 @@ export default function AdminProductsPage() {
 
   const openCreate = () => {
     setEditing(null);
-    setForm({ name: "", slug: "", description: "", short_desc: "", price: "", mrp: "", category: "boxer-brief", sizes: "S,M,L,XL", material: "", stock: "100", badge: "", images: [] });
+    setForm({ name: "", slug: "", description: "", short_desc: "", price: "", mrp: "", category: "boxer-brief", sizes: "S,M,L,XL", material: "100% Cotton", stock: "100", badge: "", images: [] });
     setShowModal(true);
   };
 

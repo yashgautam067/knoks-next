@@ -1,15 +1,18 @@
 export default function MarqueeStrip() {
   const text =
-    "FREE SHIPPING ABOVE ₹999 • 30-DAY RETURNS • PREMIUM COTTON • MADE FOR MEN • KNOKS • BUILT DIFFERENT • WORN BETTER • ";
+    "FAST DELIVERY • 100% COTTON • PREMIUM UNDERWEAR • MADE FOR MEN • KNOKS • BUILT DIFFERENT • WORN BETTER • ESSENTIAL LUXURY • ";
 
   return (
-    <div className="bg-charcoal py-3 overflow-hidden border-y border-gold/10">
+    <div
+      className="fixed top-0 left-0 right-0 bg-charcoal py-2 overflow-hidden border-b border-gold/10"
+      style={{ zIndex: 10000, height: "36px" }}
+    >
       <div className="marquee-container">
         <div className="marquee-content">
           {[...Array(4)].map((_, i) => (
             <span
               key={i}
-              className="text-gold/70 font-heading text-sm tracking-[0.3em] uppercase whitespace-nowrap mx-4"
+              className="text-white font-heading text-[11px] tracking-[0.3em] uppercase whitespace-nowrap mx-4"
             >
               {text}
             </span>

@@ -14,14 +14,13 @@ const footerLinks = {
   support: [
     { label: "Track Order", href: "/track" },
     { label: "Size Guide", href: "/shop" },
-    { label: "Returns & Exchange", href: "#" },
-    { label: "FAQs", href: "#" },
+    { label: "FAQs", href: "/faqs" },
   ],
   company: [
-    { label: "About Us", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms & Conditions", href: "#" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms & Conditions", href: "/terms" },
   ],
 };
 
@@ -40,8 +39,8 @@ export default function Footer() {
               className="h-7 w-auto opacity-90 mb-4"
             />
             <p className="text-silver/50 text-sm font-body leading-relaxed mb-6 max-w-xs">
-              Premium men&apos;s underwear. Engineered for comfort, designed for
-              confidence. Hit Different.
+              100% cotton premium underwear. Designed for comfort,
+              crafted for confidence. Hit Different.
             </p>
             <div className="flex gap-4">
               <a
@@ -111,15 +110,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-silver/50 text-sm font-body">
                 <Mail className="w-4 h-4 mt-0.5 shrink-0" />
-                support@knoks.in
+                contact@knoks.in
               </li>
               <li className="flex items-start gap-2 text-silver/50 text-sm font-body">
                 <Phone className="w-4 h-4 mt-0.5 shrink-0" />
-                +91 98765 43210
+                +91 99999 99999
               </li>
               <li className="flex items-start gap-2 text-silver/50 text-sm font-body">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                Mumbai, Maharashtra, India
+                Noida, India
               </li>
             </ul>
           </div>

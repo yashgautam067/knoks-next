@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Star, Truck, Shield, RefreshCw } from "lucide-react";
+import { ArrowRight, Star, Truck, Shield } from "lucide-react";
 import HeroSection from "@/components/store/HeroSection";
-import MarqueeStrip from "@/components/store/MarqueeStrip";
 import ProductCard from "@/components/store/ProductCard";
 import Button from "@/components/ui/Button";
 import type { Product } from "@/types";
@@ -15,22 +14,17 @@ const features = [
   {
     icon: Star,
     title: "Premium Quality",
-    desc: "95% combed cotton, 5% elastane for all-day comfort",
+    desc: "100% premium cotton for all-day comfort & confidence",
   },
   {
     icon: Truck,
-    title: "Free Shipping",
-    desc: "Free delivery on orders above ₹999",
+    title: "Fast Delivery",
+    desc: "Quick dispatch & delivery across India",
   },
   {
     icon: Shield,
     title: "Quality Guarantee",
-    desc: "30-day hassle-free returns & exchanges",
-  },
-  {
-    icon: RefreshCw,
-    title: "Easy Returns",
-    desc: "Don't love it? Send it back, no questions asked",
+    desc: "Built to last — premium in every stitch",
   },
 ];
 
@@ -75,12 +69,6 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <HeroSection />
-
-      {/* Gold Divider */}
-      <div className="gold-divider" />
-
-      {/* Marquee */}
-      <MarqueeStrip />
 
       {/* Gold Divider */}
       <div className="gold-divider" />
@@ -163,8 +151,8 @@ export default function HomePage() {
               </h2>
               <div className="w-12 h-[1px] bg-gradient-to-r from-gold to-transparent mb-6" />
               <p className="text-silver/60 font-body leading-relaxed mb-8">
-                Every pair of KNOKS underwear is engineered from the ground up.
-                We obsess over fabric selection, fit engineering, and design
+                Every pair of KNOKS underwear is crafted from 100% premium cotton.
+                We obsess over fabric quality, fit engineering, and design
                 details that other brands overlook. The result? Underwear that
                 feels like a second skin and lasts wash after wash.
               </p>
@@ -184,7 +172,7 @@ export default function HomePage() {
       {/* Features */}
       <section className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {features.map((feature, i) => (
               <motion.div
                 key={feature.title}
