@@ -70,8 +70,32 @@ export default function HomePage() {
       {/* Hero */}
       <HeroSection />
 
-      {/* Gold Divider */}
-      <div className="gold-divider" />
+
+      {/* Promotional Banner */}
+      <section className="w-full bg-black">
+        <Link href="/shop?category=pack" className="block relative group">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-8">
+            <div className="relative overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/banner-pack.jpg"
+                alt="KNOKS Pack - Buy 4 for ₹799"
+                className="w-full h-auto block transition-transform duration-700 group-hover:scale-[1.02]"
+                style={{ imageRendering: "auto" }}
+              />
+              {/* Subtle hover overlay */}
+              <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-all duration-500" />
+            </div>
+            {/* Shop Now Button */}
+            <div className="flex justify-center mt-6">
+              <span className="inline-flex items-center gap-2 bg-gradient-to-r from-gold to-goldLight text-black px-8 py-3 text-sm font-heading tracking-[0.2em] uppercase shadow-lg group-hover:shadow-gold/30 transition-all duration-300 group-hover:scale-105">
+                SHOP NOW
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </span>
+            </div>
+          </div>
+        </Link>
+      </section>
 
       {/* Featured Products */}
       <section className="py-24 bg-black gold-bg-pattern relative">
